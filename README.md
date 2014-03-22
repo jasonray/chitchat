@@ -1,17 +1,14 @@
 Overview
 ========
-This is an example of using dropwizard [http://bit.ly/WcgD9s]
+chitchat is a typical chat application.
+
+I am building this as an example of using dropwizard [http://bit.ly/WcgD9s]
 
 How-to compile
 ==============
 You can compile using the gradle wrapper or the native gradle
 ```
-gradle clean fatJar
-```
-
-or
-```
-./g clean fatJar
+./gradlew clean fatJar
 ```
 
 How-to run
@@ -31,7 +28,7 @@ First time only
 ---------------
 If you have gradle installed, run:
 ```
-gradle eclipse
+./gradlew eclipse
 ```
 Now you can import the project into eclipse.
 
