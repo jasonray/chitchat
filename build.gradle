@@ -1,0 +1,41 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'fatjar'
+
+repositories {
+    mavenCentral()
+	maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'eu.appsatori:gradle-fatjar-plugin:0.2-rc1'
+    }
+}
+
+dependencies {
+	compile 'io.dropwizard:dropwizard-core:0.7.0-SNAPSHOT'
+
+	testCompile "junit:junit-dep:4.10"
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.10'
+}
+
+fatJar {
+	manifest {
+		attributes(
+			"Main-Class": "jayray.net.HelloWorldService", 
+			"Implementation-Title": "HelloWorldService", 
+			"Implementation-Version": "0.01"
+		)
+	}
+	exclude 'META-INF/*.SF'
+	exclude 'META-INF/*.DSA'
+	exclude 'META-INF/*.RSA'
+}
