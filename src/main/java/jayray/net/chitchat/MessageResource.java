@@ -1,6 +1,8 @@
 package jayray.net.chitchat;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -12,26 +14,45 @@ import javax.ws.rs.core.MediaType;
 @Path("/messages")
 public class MessageResource {
 	private static final org.slf4j.Logger LOGGER = org.slf4j.LoggerFactory.getLogger(MessageResource.class);
+	private final MessageDao messageDao = new MessageDao();
 
 	@POST
-	@Path("1")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public void createMessage(String message) {
-		LOGGER.info("received message 1 " + message);
+	public void createMessage(Message message) {
+		LOGGER.info("saving message");
+		messageDao.save(message);
 	}
 
-	@POST
-	@Path("2")
-	@Consumes(MediaType.APPLICATION_JSON)
-	public void createMessage2(Message message) {
-		LOGGER.info("received message 2 " + message);
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Message> fetch() {
+		return messageDao.fetch();
 	}
 
 	@GET
 	@Path("sample")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Message getSampleMessage() {
-		Message message = new Message("user1", "user2", "mary had a little lamb", new Date());
-		return message;
+		return messageDao.fetch().get(0);
+	}
+
+	private class MessageDao {
+		private List<Message> messages = new ArrayList<Message>();
+
+		public MessageDao() {
+			messages = new ArrayList<Message>();
+			messages.add(new Message("user1", "user2", "mary had a little lamb", new Date()));
+			messages.add(new Message("user1", "user2", "message 2", new Date()));
+			messages.add(new Message("user2", "user1", "return message", new Date()));
+			messages.add(new Message("user1", "user2", "message 3", new Date()));
+		}
+
+		public List<Message> fetch() {
+			return messages;
+		}
+
+		public void save(Message message) {
+			messages.add(message);
+		}
 	}
 }
