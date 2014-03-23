@@ -42,3 +42,6 @@ project/plugins/project/
 # Scala-IDE specific
 .scala_dependencies
 .cache
+src/main/resources/webapp/node_modules/bower
+src/main/resources/webapp/node_modules/grunt-cli
+src/main/resources/webapp/node_modules/yo

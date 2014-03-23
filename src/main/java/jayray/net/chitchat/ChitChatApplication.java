@@ -1,6 +1,7 @@
 package jayray.net.chitchat;
 
 import io.dropwizard.Application;
+import io.dropwizard.assets.AssetsBundle;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 
@@ -11,6 +12,7 @@ public class ChitChatApplication extends Application<ChitChatConfiguration> {
 
 	@Override
 	public void initialize(Bootstrap<ChitChatConfiguration> bootstrap) {
+		bootstrap.addBundle(new AssetsBundle("/webapp/", "/app", "index.html"));
 	}
 
 	@Override

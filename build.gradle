@@ -19,6 +19,7 @@ buildscript {
 
 dependencies {
 	compile 'io.dropwizard:dropwizard-core:0.7.0-SNAPSHOT'
+	compile 'io.dropwizard:dropwizard-assets:0.7.0-SNAPSHOT'
 
 	testCompile "junit:junit-dep:4.10"
 }
