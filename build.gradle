@@ -30,8 +30,8 @@ task wrapper(type: Wrapper) {
 fatJar {
 	manifest {
 		attributes(
-			"Main-Class": "jayray.net.HelloWorldService", 
-			"Implementation-Title": "HelloWorldService", 
+			"Main-Class": "jayray.net.chitchat.ChitChatApplication", 
+			"Implementation-Title": "chit-chat", 
 			"Implementation-Version": "0.01"
 		)
 	}

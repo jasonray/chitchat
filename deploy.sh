@@ -1,1 +1,1 @@
-java -jar build/libs/dropwizard-starterkit.jar server src/main/resources/config.json
+java -jar build/libs/chitchat.jar server src/main/resources/config.json

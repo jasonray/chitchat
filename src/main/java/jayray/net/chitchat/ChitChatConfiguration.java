@@ -1,4 +1,4 @@
-package jayray.net;
+package jayray.net.chitchat;
 
 import io.dropwizard.Configuration;
 
@@ -6,7 +6,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class HelloWorldConfiguration extends Configuration {
+public class ChitChatConfiguration extends Configuration {
     @NotEmpty
     @JsonProperty
     private String template;
