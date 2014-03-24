@@ -12,7 +12,7 @@ public class ChitChatApplication extends Application<ChitChatConfiguration> {
 
 	@Override
 	public void initialize(Bootstrap<ChitChatConfiguration> bootstrap) {
-		bootstrap.addBundle(new AssetsBundle("/webapp/", "/app", "index.html"));
+		bootstrap.addBundle(new AssetsBundle("/webapp/app", "/app", "index.html"));
 	}
 
 	@Override
