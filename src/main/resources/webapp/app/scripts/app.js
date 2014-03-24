@@ -20,6 +20,10 @@ angular.module('webappApp', [
         templateUrl: 'views/list-message.html',
         controller: 'ListMessagesController'
       })
+      .when('/greeting', {
+        templateUrl: 'views/greeting.html',
+        controller: 'GreetingController'
+      })
       .otherwise({
         redirectTo: '/'
       });
